@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>伊奈 斗夢 - AWS Infrastructure Engineer</title>
+    <style>
+        /* ===== リセット & ベーススタイル ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Helvetica Neue', Arial, 'Noto Sans JP', sans-serif;
+            line-height: 1.7;
+            color: #ffffff;
+            background-color: #1e2a38; /* メインの濃いネイビー */
+        }
+        
+        /* ===== ヘッダー部分 ===== */
+        .header {
+            background: linear-gradient(135deg, #1e2a38 0%, #2c3e50 100%);
+            border-bottom: 4px solid #ff9900; /* AWSオレンジのアクセント */
+            padding: 60px 0 40px 0;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            font-weight: 300;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+        
+        .header .role {
+            font-size: 1.3em;
+            color: #ff9900; /* AWSオレンジで職種を強調 */
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+        
+        .header .summary {
+            font-size: 1.1em;
+            color: #b8c5d1; /* 薄いグレーで読みやすく */
+            max-width: 800px;
+            line-height: 1.6;
+        }
+        
+        /* ===== ナビゲーションタブ ===== */
+        .nav-tabs {
+            background-color: #2c3e50; /* ヘッダーより少し明るいネイビー */
+            border-bottom: 1px solid #34495e;
+            padding: 0;
+            margin-bottom: 0;
+        }
+        
+        .nav-tabs ul {
+            list-style: none;
+            display: flex;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .nav-tabs li {
+            margin-right: 40px;
+        }
+        
+        .nav-tabs a {
+            display: block;
+            padding: 20px 0;
+            text-decoration: none;
+            color: #b8c5d1; /* デフォルトは薄いグレー */
+            font-weight: 500;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-tabs a.active,
+        .nav-tabs a:hover {
+            color: #ff9900; /* ホバー・アクティブ時はAWSオレンジ */
+            border-bottom-color: #ff9900;
+        }
+        
+        /* ===== メインコンテンツエリア ===== */
+        .content {
+            padding: 40px 0;
+            background-color: #1e2a38; /* ベースカラーと統一 */
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .section-title {
+            font-size: 1.8em;
+            color: #ffffff;
+            margin-bottom: 30px;
+            font-weight: 400;
+        }
+        
+        /* ===== プロジェクトカード ===== */
+        .project {
+            background-color: #ffffff; /* 白い背景でコンテンツを目立たせる */
+            color: #2c3e50; /* 白背景には濃いテキスト */
+            border-left: 4px solid #ff9900; /* AWSオレンジのアクセント */
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .project h3 {
+            color: #1e2a38; /* プロジェクトタイトルは濃いネイビー */
+            font-size: 1.4em;
+            margin-bottom: 15px;
+        }
+        
+        .project .period {
+            color: #7f8c8d; /* 期間は控えめなグレー */
+            font-size: 0.9em;
+            margin-bottom: 15px;
+        }
+        
+        /* ===== メトリクス（実績）ボックス ===== */
+        .metrics {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%); /* 薄いオレンジ系グラデーション */
+            border: 1px solid #ff9900;
+            border-radius: 6px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .metrics h4 {
+            color: #d35400; /* 濃いオレンジでタイトル */
+            margin-bottom: 10px;
+        }
+        
+        .metrics ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .metrics li {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+            color: #2c3e50;
+        }
+        
+        .metrics li:before {
+            content: "▸";
+            color: #ff9900;
+            position: absolute;
+            left: 0;
+        }
+        
+        /* ===== 技術スタックグリッド ===== */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .tech-category {
+            background-color: #ffffff;
+            color: #2c3e50;
+            padding: 25px;
+            border-radius: 8px;
+            border-top: 4px solid #ff9900;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .tech-category h4 {
+            color: #1e2a38;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+        
+        .tech-list {
+            list-style: none;
+        }
+        
+        .tech-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #ecf0f1;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .tech-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .experience-level {
+            background-color: #ff9900;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            font-weight: 500;
+        }
+        
+        /* ===== キャリア履歴 ===== */
+        .career-item {
+            background-color: #ffffff;
+            color: #2c3e50;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+            border-left: 4px solid #ff9900;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .career-item h4 {
+            color: #1e2a38;
+            font-size: 1.2em;
+            margin-bottom: 5px;
+        }
+        
+        .career-item .company {
+            color: #ff9900;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+        
+        .career-item .period {
+            color: #7f8c8d;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+        }
+        
+        .career-item ul {
+            margin-left: 20px;
+            color: #5a6c7d;
+        }
+        
+        /* ===== コンタクト情報 ===== */
+        .contact-info {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            color: #2c3e50;
+            padding: 40px;
+            border-radius: 8px;
+            text-align: center;
+            border: 2px solid #ff9900;
+            box-shadow: 0 8px 24px rgba(255, 153, 0, 0.15);
+        }
+        
+        .contact-info h3 {
+            color: #1e2a38;
+            margin-bottom: 20px;
+        }
+        
+        .contact-links {
+            margin-top: 20px;
+        }
+        
+        .contact-links a {
+            color: #ff9900;
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: 500;
+            padding: 10px 20px;
+            border: 2px solid #ff9900;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .contact-links a:hover {
+            background-color: #ff9900;
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+        
+        /* ===== フッター ===== */
+        .footer {
+            background: linear-gradient(135deg, #2c3e50 0%, #1e2a38 100%);
+            color: #b8c5d1;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 60px;
+            border-top: 2px solid #ff9900;
+        }
+        
+        .footer p {
+            margin-bottom: 5px;
+            font-size: 0.9em;
+        }
+        
+        .footer .aws-info {
+            color: #ff9900;
+            font-weight: 500;
+        }
+        
+        /* ===== レスポンシブデザイン ===== */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .nav-tabs ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .nav-tabs li {
+                margin-right: 20px;
+                margin-bottom: 10px;
+            }
+            
+            .tech-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .project, .tech-category, .career-item {
+                padding: 20px;
+            }
+            
+            .contact-links a {
+                display: block;
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1>伊奈 斗夢</h1>
+            <div class="role">AWS Infrastructure Engineer</div>
+            <div class="summary">
+                AWS認定ソリューションアーキテクトとして、サーバーレス基盤による大規模データ処理システムの設計・構築・運用を経験。
+                実践的なクラウドアーキテクチャの知識と、技術を分かりやすく伝える教育力を持つインフラエンジニアです。
+            </div>
+        </div>
+    </header>
+
+    <nav class="nav-tabs">
+        <div class="container">
+            <ul>
+                <li><a href="#overview" class="tab-link active">概要</a></li>
+                <li><a href="#projects" class="tab-link">実績・プロジェクト</a></li>
+                <li><a href="#skills" class="tab-link">技術スタック</a></li>
+                <li><a href="#career" class="tab-link">経歴</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="content">
+        <div class="container">
+            <div id="overview" class="tab-content active">
+                <h2 class="section-title">主要な実績</h2>
+                
+                <div class="project">
+                    <h3>AWS認定資格取得</h3>
+                    <div class="period">2025年8月取得</div>
+                    <p>AWS Solutions Architect - Associate を取得し、クラウドアーキテクチャの設計原則を体系的に学習。</p>
+                </div>
+
+                <div class="project">
+                    <h3>サーバーレス物販システム構築・運用</h3>
+                    <div class="period">2024年8月 - 現在</div>
+                    <p>個人事業における物販業務を完全自動化するシステムをAWS上に構築。手動で行っていた在庫確認・利益計算・発注判断を自動化し、業務効率を大幅に改善。</p>
+                    
+                    <div class="metrics">
+                        <h4>改善実績</h4>
+                        <ul>
+                            <li>手動での商品分析：1日8時間 → 自動処理：30分</li>
+                            <li>処理対象データ：月間最大10万件の商品情報</li>
+                            <li>APIエラー率：0.1%以下を維持</li>
+                            <li>システム稼働率：99.5%以上</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="project">
+                    <h3>福祉連携型事業運営</h3>
+                    <div class="period">2023年8月 - 現在</div>
+                    <p>就労継続支援B型施設との業務委託により、障がい者10名の就労機会を創出。技術による業務効率化と社会貢献を両立。</p>
+                </div>
+            </div>
+
+            <div id="projects" class="tab-content">
+                <h2 class="section-title">技術プロジェクト詳細</h2>
+                
+                <div class="project">
+                    <h3>物販データ処理基盤</h3>
+                    <div class="period">Lambda 15本 + Step Functions</div>
+                    <p><strong>課題：</strong> 卸サイト在庫確認、価格比較、利益計算が手動作業で1日8時間必要</p>
+                    <p><strong>解決：</strong> サーバーレスアーキテクチャによる完全自動化</p>
+                    
+                    <div class="metrics">
+                        <h4>技術構成</h4>
+                        <ul>
+                            <li>Lambda：Webスクレイピング、API連携、データ処理</li>
+                            <li>Step Functions：複雑な処理フローの制御</li>
+                            <li>S3：処理結果のCSV出力、静的ファイル管理</li>
+                            <li>CloudWatch：監視、ログ管理、エラー通知</li>
+                            <li>Docker：環境依存の課題解決、安定稼働</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="metrics">
+                        <h4>API統合</h4>
+                        <ul>
+                            <li>Amazon SP-API：売上データ取得、在庫管理</li>
+                            <li>楽天API：価格比較、商品情報取得</li>
+                            <li>Yahoo API：市場価格調査</li>
+                            <li>Keepa API：価格履歴分析</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="project">
+                    <h3>このポートフォリオサイト</h3>
+                    <div class="period">2025年8月 - 現在</div>
+                    <p>AWS静的ウェブサイトホスティングのベストプラクティスを実装</p>
+                    
+                    <div class="metrics">
+                        <h4>構成</h4>
+                        <ul>
+                            <li>S3：静的ウェブサイトホスティング</li>
+                            <li>CloudFront：CDN、HTTPS終端、パフォーマンス向上</li>
+                            <li>Route53：DNS管理、高可用性</li>
+                            <li>ACM：SSL証明書、セキュリティ</li>
+                            <li>GitHub Actions：CI/CD、自動デプロイ</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="metrics">
+                        <h4>運用コスト</h4>
+                        <ul>
+                            <li>月額約280円での運用を実現</li>
+                            <li>サーバーレスによる従量課金</li>
+                            <li>高可用性とコスト効率の両立</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="skills" class="tab-content">
+                <h2 class="section-title">技術スタック</h2>
+                
+                <div class="tech-grid">
+                    <div class="tech-category">
+                        <h4>AWS Services</h4>
+                        <ul class="tech-list">
+                            <li>Lambda <span class="experience-level">2年</span></li>
+                            <li>Step Functions <span class="experience-level">1年</span></li>
+                            <li>S3 <span class="experience-level">2年</span></li>
+                            <li>CloudWatch <span class="experience-level">1年</span></li>
+                            <li>Route53 <span class="experience-level">1年</span></li>
+                            <li>CloudFront <span class="experience-level">1年</span></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="tech-category">
+                        <h4>プログラミング</h4>
+                        <ul class="tech-list">
+                            <li>Python <span class="experience-level">2年</span></li>
+                            <li>pandas <span class="experience-level">2年</span></li>
+                            <li>Selenium <span class="experience-level">1年</span></li>
+                            <li>requests <span class="experience-level">1年</span></li>
+                            <li>Docker <span class="experience-level">1年</span></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="tech-category">
+                        <h4>API・連携</h4>
+                        <ul class="tech-list">
+                            <li>Amazon SP-API <span class="experience-level">1年</span></li>
+                            <li>楽天API <span class="experience-level">1年</span></li>
+                            <li>Yahoo API <span class="experience-level">1年</span></li>
+                            <li>Keepa API <span class="experience-level">1年</span></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="tech-category">
+                        <h4>その他</h4>
+                        <ul class="tech-list">
+                            <li>Google Apps Script <span class="experience-level">3年</span></li>
+                            <li>Excel/VBA <span class="experience-level">4年</span></li>
+                            <li>AutoCAD/Jw-CAD <span class="experience-level">2年</span></li>
+                            <li>Git/GitHub <span class="experience-level">1年</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="career" class="tab-content">
+                <h2 class="section-title">職歴</h2>
+                
+                <div class="career-item">
+                    <h4>プログラミング教師</h4>
+                    <div class="company">株式会社ジョイアス</div>
+                    <div class="period">2025年3月 - 現在（アルバイト）</div>
+                    <ul>
+                        <li>小中学生向けScratch・Pythonプログラミング指導</li>
+                        <li>ITリテラシー教育、論理的思考力の育成</li>
+                        <li>技術的内容を分かりやすく説明するスキルを習得</li>
+                    </ul>
+                </div>
+                
+                <div class="career-item">
+                    <h4>個人事業主（システム開発・物販事業）</h4>
+                    <div class="company">個人事業</div>
+                    <div class="period">2023年8月 - 現在</div>
+                    <ul>
+                        <li>AWSを活用したサーバーレス基盤の設計・構築・運用</li>
+                        <li>Python による自動化システム開発</li>
+                        <li>就労継続支援B型施設との業務委託（最大10名管理）</li>
+                        <li>月間10万件超のデータ処理基盤構築</li>
+                    </ul>
+                </div>
+                
+                <div class="career-item">
+                    <h4>私設秘書</h4>
+                    <div class="company">常滑市議会（新風クラブ）</div>
+                    <div class="period">2022年11月 - 2023年7月（アルバイト）</div>
+                    <ul>
+                        <li>議会資料作成・整理、住民相談対応</li>
+                        <li>講演会・説明会でのAV機器設置・技術サポート</li>
+                        <li>多様なステークホルダーとの調整業務</li>
+                    </ul>
+                </div>
+                
+                <div class="career-item">
+                    <h4>総合職・営業</h4>
+                    <div class="company">株式会社一条工務店</div>
+                    <div class="period">2021年4月 - 2022年10月</div>
+                    <ul>
+                        <li>住宅展示場での営業サポート、顧客対応</li>
+                        <li>Jw-CAD・AutoCADによる図面修正</li>
+                        <li>Google Apps Script による業務効率化</li>
+                    </ul>
+                </div>
+                
+                <div class="contact-info">
+                    <h3>Contact</h3>
+                    <p>AWS基盤エンジニアとして、クラウドインフラの構築・運用に携わりたいと考えています。</p>
+                    <div class="contact-links">
+                        <a href="mailto:parmenara@gmailcom.com">Email</a>
+                        <a href="https://github.com/tomy224" target="_blank">GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 伊奈 斗夢 - AWS Infrastructure Engineer Portfolio</p>
+        <p class="aws-info">Hosted on AWS S3 + CloudFront + Route53 | Deployed via GitHub Actions</p>
+    </footer>
+
+    <script>
+        // ===== タブ切り替え機能 =====
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabLinks = document.querySelectorAll('.tab-link');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // 全てのタブとコンテンツから active クラスを削除
+                    tabLinks.forEach(l => l.classList.remove('active'));
+                    tabContents.forEach(c => c.classList.remove('active'));
+                    
+                    // クリックされたタブに active クラスを追加
+                    this.classList.add('active');
+                    
+                    // 対応するコンテンツを表示
+                    const targetId = this.getAttribute('href').substring(1);
+                    document.getElementById(targetId).classList.add('active');
+                });
+            });
+        });
+        
+        // ===== スムーススクロール =====
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // ===== 簡単なアニメーション効果 =====
+        window.addEventListener('scroll', function() {
+            const elements = document.querySelectorAll('.project, .tech-category, .career-item');
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                } else {
+                    element.style.opacity = '0.8';
+                    element.style.transform = 'translateY(20px)';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
