@@ -19,11 +19,17 @@
             background-color: #1e2a38;
         }
         
-        /* ===== ヘッダー部分（簡略化） ===== */
+        /* ===== ヘッダー部分（固定化） ===== */
         .header {
             background: linear-gradient(135deg, #1e2a38 0%, #2c3e50 100%);
             border-bottom: 4px solid #ff9900;
             padding: 30px 0 20px 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 999;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
         }
         
         .container {
@@ -45,13 +51,19 @@
             font-weight: 500;
         }
         
-        /* ===== ナビゲーションタブ ===== */
+        /* ===== ナビゲーションタブ（固定化） ===== */
         .nav-tabs {
             background-color: #2c3e50;
             border-bottom: 1px solid #34495e;
             padding: 0;
             margin-bottom: 0;
             overflow-x: auto;
+            position: fixed;
+            top: 100px;
+            left: 0;
+            right: 0;
+            z-index: 998;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
         
         .nav-tabs ul {
@@ -89,6 +101,7 @@
         .content {
             padding: 40px 0;
             background-color: #1e2a38;
+            margin-top: 160px;
         }
         
         .tab-content {
@@ -661,7 +674,7 @@
                     </div>
                     <div class="strength-card">
                         <div class="strength-icon">
-                            <img src="assets/welfare-collaboration.jpg" alt="福祉事業所での打ち合わせ" 
+                            <img src="assets/welfare-meeting-four-people.jpg" alt="B型施設での話し合い風景" 
                                  style="width: 80px; height: 80px; object-fit: cover; border-radius: 50%;">
                         </div>
                         <h3>社会貢献×技術</h3>
@@ -697,18 +710,32 @@
                     <div class="profile-info">
                         <h3 style="color: #1e2a38; margin-bottom: 20px;">技術との出会い</h3>
                         <p style="margin-bottom: 15px;">
+                            大学では建築学科で空間デザインを学びながら、管弦楽団でバイオリンに挑戦。
+                            初心者から始めて最終的にコンサートマスターの横で演奏するまでに成長した経験が、
+                            現在の「継続学習による技術習得」の基盤となっています。
+                        </p>
+                        <p style="margin-bottom: 15px;">
                             営業職から始まり、業務効率化への関心からプログラミングの世界へ。
                             個人事業で直面した実際のビジネス課題を解決する過程で、AWSクラウド技術を習得しました。
                         </p>
                         <p style="margin-bottom: 15px;">
-                            「技術で社会をより良くしたい」という想いから、障がい者雇用創出と事業効率化を両立する仕組みを構築。
-                            現在はプログラミング教育を通じて、次世代の技術者育成にも貢献しています。
+                            事業運営において社会貢献性を持たせることで事業価値の向上を実現。
+                            障がい者雇用創出と効率化を両立する仕組みを構築しました。
+                            現在はプログラミング教育を通じて、地域の子どもたちのITリテラシー向上に貢献しています。
                         </p>
+                        <h4 style="color: #ff9900; margin: 20px 0 10px 0;">成長の軌跡</h4>
+                        <ul style="color: #5a6c7d; margin-left: 20px;">
+                            <li>競泳：愛知県高校総体知多地区予選 自由形50m優勝</li>
+                            <li>音楽：バイオリン初心者→コンサートマスター横で演奏</li>
+                            <li>技術：営業職→AWS認定エンジニア</li>
+                            <li>教育：大学時代の家庭教師→現在のプログラミング指導</li>
+                        </ul>
                         <h4 style="color: #ff9900; margin: 20px 0 10px 0;">趣味・興味</h4>
                         <ul style="color: #5a6c7d; margin-left: 20px;">
                             <li>新しい技術の学習・検証</li>
                             <li>効率化ツールの開発</li>
-                            <li>地域コミュニティとの関わり</li>
+                            <li>ピアノ演奏（福祉施設での演奏予定あり）</li>
+                            <li>地域コミュニティ・ボランティア活動</li>
                         </ul>
                     </div>
                 </div>
@@ -723,24 +750,24 @@
                     </div>
                     <div class="photo-item">
                         <div class="photo-placeholder">
-                            <img src="assets/welfare-meeting.jpg" alt="就労継続支援B型事業所打ち合わせ" 
+                            <img src="assets/vr-research-university.jpg" alt="大学ゼミVR研究風景" 
                                  style="width: 100%; height: 150px; object-fit: cover;">
                         </div>
-                        <div class="photo-caption">就労継続支援B型事業所での打ち合わせ</div>
+                        <div class="photo-caption">大学時代のVR研究（技術担当）</div>
                     </div>
                     <div class="photo-item">
                         <div class="photo-placeholder">
-                            <img src="assets/development-workspace.jpg" alt="システム開発環境" 
+                            <img src="assets/city-council-chamber.jpg" alt="市議会議場" 
                                  style="width: 100%; height: 150px; object-fit: cover;">
                         </div>
-                        <div class="photo-caption">システム開発中の様子</div>
+                        <div class="photo-caption">秘書時代の市議会議場</div>
                     </div>
                     <div class="photo-item">
                         <div class="photo-placeholder">
-                            <img src="assets/aws-study.jpg" alt="AWS学習風景" 
+                            <img src="assets/violin-performance.jpg" alt="バイオリン演奏" 
                                  style="width: 100%; height: 150px; object-fit: cover;">
                         </div>
-                        <div class="photo-caption">AWS学習・資格取得時</div>
+                        <div class="photo-caption">管弦楽団でのバイオリン演奏</div>
                     </div>
                 </div>
             </div>
@@ -780,6 +807,7 @@
                             <span class="tech-tag">S3</span>
                             <span class="tech-tag">CloudFront</span>
                             <span class="tech-tag">Route53</span>
+                            <span class="tech-tag">ACM</span>
                             <span class="tech-tag">GitHub Actions</span>
                         </div>
                         <div class="project-cta">詳細を見る →</div>
@@ -879,7 +907,8 @@
                     
                     <h4 style="color: #ff9900; margin: 20px 0 10px 0;">学習計画</h4>
                     <p style="color: #5a6c7d;">
-                        現在LPIC Level1を学習中。今後はAWS Professional認定やKubernetes関連資格の取得を予定しています。
+                        現在LPIC Level1を学習中。今後はLPIC Level2・3の取得を予定しており、
+                        AWS Professional認定など関連資格も随時取得していく計画です。
                     </p>
                 </div>
             </div>
@@ -894,7 +923,8 @@
                     <div class="period">2025年3月 - 現在（アルバイト）</div>
                     <ul>
                         <li>小中学生を対象に、Scratch・Pythonを中心とした指導を担当</li>
-                        <li>ITリテラシーや基礎的なプログラミング的思考の育成に貢献</li>
+                        <li>Python文法の基礎指導、paiza・CodeCombat等を活用した実践学習</li>
+                        <li>プログラミング的思考の育成と問題解決能力の向上をサポート</li>
                         <li>技術をかみ砕いて説明する力・教育力を強化</li>
                         <li>ECサイトの制作・運用サポート業務</li>
                     </ul>
@@ -903,8 +933,8 @@
                         <h4>教育実績</h4>
                         <ul>
                             <li>指導生徒数: 月平均15名の小中学生</li>
-                            <li>カリキュラム: Scratch基礎からPython応用まで</li>
-                            <li>成果: 複数の生徒がプログラミングコンテスト入賞</li>
+                            <li>カリキュラム: ScratchからPython基礎まで（paiza・CodeCombat活用）</li>
+                            <li>成果: 指導生徒がPythonプログラミング能力検定試験に合格</li>
                         </ul>
                     </div>
                 </div>
@@ -926,7 +956,7 @@
                             <li>Phase 1: Python基礎習得 → 手動スクレイピングツール作成</li>
                             <li>Phase 2: AWS Lambda導入 → 単発処理の自動化</li>
                             <li>Phase 3: Step Functions活用 → 複雑なワークフロー制御</li>
-                            <li>Phase 4: 監視・ログ管理 → CloudWatchによる運用改善</li>
+                            <li>Phase 4: 監視・ログ管理 → CloudWatchでエラー特定・障害対応</li>
                             <li>Phase 5: AWS SAA取得 → 体系的な知識の整理</li>
                         </ul>
                     </div>
@@ -976,8 +1006,8 @@
                         <h4 style="color: #d35400; margin-bottom: 15px;">現在の状況</h4>
                         <p style="color: #2c3e50; margin: 0;">
                             インフラエンジニアとしての転職活動中です。<br>
-                            AWS認定資格取得済み、実務経験あり。<br>
-                            <strong>2025年10月入社希望</strong>
+                            AWS認定資格取得済み、個人プロジェクトでの開発経験あり。<br>
+                            <strong>2025年10月以降入社希望</strong>（現職への配慮と引き継ぎのため）
                         </p>
                     </div>
                 </div>
@@ -1150,20 +1180,20 @@
                     <h4>事業実績</h4>
                     <ul>
                         <li>雇用創出: 最大10名の障がい者の就労機会を提供</li>
-                        <li>業務効率: 梱包・発送作業の標準化により品質向上</li>
-                        <li>継続性: 2年以上の安定した業務委託関係を維持</li>
+                        <li>業務効率: 梱包・発送作業の品質向上（目視ダブルチェック体制）</li>
+                        <li>安定運営: 継続的な業務委託関係を維持</li>
                         <li>社会的影響: 地域の障がい者支援に具体的貢献</li>
                     </ul>
                 </div>
                 
-                <h3 style="color: #1e2a38; margin: 30px 0 15px 0;">技術×福祉の取り組み</h3>
+                <h3 style="color: #1e2a38; margin: 30px 0 15px 0;">事業運営の全体設計</h3>
                 <div class="metrics">
-                    <h4>業務設計・効率化</h4>
+                    <h4>包括的な業務管理</h4>
                     <ul>
-                        <li>作業手順の標準化: 誰でも実行可能な作業フローを設計</li>
-                        <li>品質管理システム: チェックリスト導入で作業品質を担保</li>
-                        <li>進捗管理: Google スプレッドシートによる作業状況の可視化</li>
-                        <li>コミュニケーション: 定期的な打ち合わせで課題解決</li>
+                        <li>業務標準化: マニュアル作成から作業手順の体系化</li>
+                        <li>品質管理: 目視によるダブルチェック体制の構築</li>
+                        <li>法務: 契約書作成から交付まで一貫管理</li>
+                        <li>情報システム: スプレッドシート認証機能で編集・閲覧制限</li>
                     </ul>
                 </div>
                 
