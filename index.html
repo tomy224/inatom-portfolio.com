@@ -101,7 +101,7 @@
         .content {
             padding: 40px 0;
             background-color: #1e2a38;
-            margin-top: 140px;
+            margin-top: 165px;
         }
         
         .tab-content {
@@ -139,13 +139,12 @@
             height: 200px;
             border-radius: 50%;
             margin: 0 auto 30px;
-            background: linear-gradient(45deg, #ff9900, #e67e22);
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 4em;
             color: white;
-            box-shadow: 0 10px 30px rgba(255, 153, 0, 0.3);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
             overflow: hidden;
         }
         
@@ -198,10 +197,13 @@
             font-size: 2.5em;
             color: #ff9900;
             margin-bottom: 15px;
-            height: 80px;
+            height: 120px;
             display: flex;
             align-items: center;
             justify-content: center;
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: #f8f9fa;
         }
         
         .strength-card h3 {
@@ -234,13 +236,12 @@
             height: 150px;
             border-radius: 50%;
             margin: 0 auto 20px;
-            background: linear-gradient(45deg, #ff9900, #e67e22);
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 3em;
             color: white;
-            box-shadow: 0 6px 20px rgba(255, 153, 0, 0.3);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
             overflow: hidden;
         }
         
@@ -577,7 +578,7 @@
             }
             
             .content {
-                margin-top: 110px;
+                margin-top: 135px;
             }
         }
         
@@ -679,7 +680,7 @@
             <div id="home" class="tab-content active">
                 <div class="hero-section">
                     <div class="hero-image">
-                        <img src="assets/profile-main.jpg" alt="伊奈斗夢" 
+                        <img src="assets/profile-main.jpeg" alt="伊奈斗夢" 
                              style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
                     </div>
                     <h2 class="hero-title">伊奈 斗夢</h2>
@@ -694,23 +695,23 @@
                     <div class="strength-card">
                         <div class="strength-icon">
                             <img src="assets/aws-architecture-icon.png" alt="AWS Architecture" 
-                                 style="width: 80px; height: 80px; object-fit: contain;">
+                                 style="width: 100%; height: 120px; object-fit: contain; padding: 10px;">
                         </div>
                         <h3>AWS実践経験</h3>
                         <p>Lambda 15本 + Step Functions による<br>月間10万件のデータ処理基盤を構築・運用</p>
                     </div>
                     <div class="strength-card">
                         <div class="strength-icon">
-                            <img src="assets/welfare-meeting-four-people.jpg" alt="B型施設での話し合い風景" 
-                                 style="width: 80px; height: 80px; object-fit: cover; border-radius: 50%;">
+                            <img src="assets/welfare-meeting-four-people.jpeg" alt="B型施設での話し合い風景" 
+                                 style="width: 100%; height: 120px; object-fit: cover;">
                         </div>
                         <h3>社会貢献×技術</h3>
                         <p>就労継続支援B型施設との連携により<br>技術による業務効率化と雇用創出を両立</p>
                     </div>
                     <div class="strength-card">
                         <div class="strength-icon">
-                            <img src="assets/programming-class.jpg" alt="プログラミング教室での指導風景" 
-                                 style="width: 80px; height: 80px; object-fit: cover; border-radius: 50%;">
+                            <img src="assets/programming-class.jpeg" alt="プログラミング教室での指導風景" 
+                                 style="width: 100%; height: 120px; object-fit: cover;">
                         </div>
                         <h3>教育・説明力</h3>
                         <p>プログラミング教室での指導経験により<br>技術的内容を分かりやすく伝える力</p>
@@ -723,7 +724,7 @@
                 <div class="about-section">
                     <div class="profile-card">
                         <div class="profile-image">
-                            <img src="assets/profile-about.jpg" alt="伊奈斗夢プロフィール写真" 
+                            <img src="assets/profile-about.jpeg" alt="伊奈斗夢プロフィール写真" 
                                  style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
                         </div>
                         <h3 style="color: #1e2a38; margin-bottom: 15px;">伊奈 斗夢</h3>
@@ -770,7 +771,7 @@
                 <div class="photo-gallery">
                     <div class="photo-item">
                         <div class="photo-placeholder">
-                            <img src="assets/programming-class-detail.jpg" alt="プログラミング教室指導風景" 
+                            <img src="assets/programming-class-detail.jpeg" alt="プログラミング教室指導風景" 
                                  style="width: 100%; height: 150px; object-fit: cover;">
                         </div>
                         <div class="photo-caption">プログラミング教室での指導風景</div>
@@ -791,7 +792,7 @@
                     </div>
                     <div class="photo-item">
                         <div class="photo-placeholder">
-                            <img src="assets/violin-performance.jpg" alt="バイオリン演奏" 
+                            <img src="assets/violin-performance.png" alt="バイオリン演奏" 
                                  style="width: 100%; height: 150px; object-fit: cover;">
                         </div>
                         <div class="photo-caption">管弦楽団でのバイオリン演奏</div>
@@ -1026,7 +1027,6 @@
                     <div class="contact-links">
                         <a href="mailto:parmenara@gmail.com">Email</a>
                         <a href="https://github.com/tomy224" target="_blank">GitHub</a>
-                        <a href="https://inatom-portfolio.com" target="_blank">Portfolio Site</a>
                     </div>
                     
                     <div style="margin-top: 30px; padding: 20px; background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%); border-radius: 10px; border: 1px solid #ff9900;">
@@ -1060,7 +1060,7 @@
                 </p>
                 
                 <div style="text-align: center; margin: 20px 0;">
-                    <img src="assets/e-commerce_data_flow_diagram.svg" 
+                    <img src="assets/e-commerce_data_flow_diagram.png" 
                          alt="物販システムワークフロー図" 
                          style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);">
                 </div>
@@ -1070,7 +1070,7 @@
                     <ul>
                         <li>作業時間短縮: 手動8時間 → 自動30分（94%削減）</li>
                         <li>処理データ量: 月間最大10万件の商品情報</li>
-                        <li>API応答時間: 平均200ms以下を維持</li>
+                        <li>API処理最適化: 楽天・Yahoo API等の並列処理でデータ取得高速化</li>
                         <li>システム稼働率: 99.5%以上</li>
                         <li>エラー率: 0.1%以下を実現</li>
                     </ul>
@@ -1093,7 +1093,7 @@
                         <li>Python: pandas, Selenium, requests による高速データ処理</li>
                         <li>Docker: 環境依存の課題解決、Lambda デプロイ最適化</li>
                         <li>API連携: Amazon SP-API, 楽天API, Yahoo API, Keepa API</li>
-                        <li>データ処理: 月間10万件の商品データを効率的に分析</li>
+                        <li>パフォーマンス最適化: APIレート制限を考慮した並列処理設計</li>
                     </ul>
                 </div>
                 
@@ -1132,7 +1132,7 @@
                 </p>
                 
                 <div style="text-align: center; margin: 20px 0;">
-                    <img src="assets/portfolio-architecture.svg" 
+                    <img src="assets/portfolio-architecture.png" 
                          alt="ポートフォリオサイトAWS構成図" 
                          style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);">
                 </div>
@@ -1277,13 +1277,6 @@
                     const targetId = this.getAttribute('href').substring(1);
                     const targetElement = document.getElementById(targetId);
                     targetElement.classList.add('active');
-                    
-                    // コンテンツエリアの先頭にスムーズスクロール
-                    const contentElement = document.querySelector('.content');
-                    contentElement.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
                 });
             });
         });
