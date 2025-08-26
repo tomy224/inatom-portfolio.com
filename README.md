@@ -13,6 +13,12 @@ AWS認定ソリューションアーキテクトとして構築した、セキ�
 
 ## 🏗️ システム構成
 
+### AWSサーバーレスアーキテクチャ
+![AWS Architecture - Amazon Product Research Pipeline](docs/images/aws_amazon_research_flow.png)
+📖 **[高解像度版（SVG）はこちら](docs/images/aws_amazon_research_flow.svg)**
+
+### データフロー概要
+
 ```
 [ユーザー] → [Route53] → [CloudFront] → [S3 (非公開)]
                            ↓
