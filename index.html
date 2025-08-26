@@ -19,11 +19,11 @@
             background-color: #1e2a38;
         }
         
-        /* ===== ヘッダー部分（固定化） ===== */
+        /* ===== ヘッダー部分（固定化・コンパクト） ===== */
         .header {
             background: linear-gradient(135deg, #1e2a38 0%, #2c3e50 100%);
             border-bottom: 4px solid #ff9900;
-            padding: 30px 0 20px 0;
+            padding: 20px 0 15px 0;
             position: fixed;
             top: 0;
             left: 0;
@@ -39,19 +39,19 @@
         }
         
         .header h1 {
-            font-size: 2em;
+            font-size: 1.6em;
             font-weight: 300;
             color: #ffffff;
-            margin-bottom: 5px;
+            margin-bottom: 3px;
         }
         
         .header .role {
-            font-size: 1.1em;
+            font-size: 0.95em;
             color: #ff9900;
             font-weight: 500;
         }
         
-        /* ===== ナビゲーションタブ（固定化） ===== */
+        /* ===== ナビゲーションタブ（固定化・調整） ===== */
         .nav-tabs {
             background-color: #2c3e50;
             border-bottom: 1px solid #34495e;
@@ -59,7 +59,7 @@
             margin-bottom: 0;
             overflow-x: auto;
             position: fixed;
-            top: 100px;
+            top: 110px;
             left: 0;
             right: 0;
             z-index: 998;
@@ -76,19 +76,19 @@
         }
         
         .nav-tabs li {
-            margin-right: 30px;
+            margin-right: 25px;
             white-space: nowrap;
         }
         
         .nav-tabs a {
             display: block;
-            padding: 18px 0;
+            padding: 15px 0;
             text-decoration: none;
             color: #b8c5d1;
             font-weight: 500;
             border-bottom: 3px solid transparent;
             transition: all 0.3s ease;
-            font-size: 0.95em;
+            font-size: 0.9em;
         }
         
         .nav-tabs a.active,
@@ -101,7 +101,7 @@
         .content {
             padding: 40px 0;
             background-color: #1e2a38;
-            margin-top: 160px;
+            margin-top: 140px;
         }
         
         .tab-content {
@@ -552,6 +552,33 @@
                 display: block;
                 margin: 10px 0;
             }
+            
+            /* モバイル時のヘッダー調整 */
+            .header {
+                padding: 15px 0 10px 0;
+            }
+            
+            .header h1 {
+                font-size: 1.4em;
+                margin-bottom: 2px;
+            }
+            
+            .header .role {
+                font-size: 0.85em;
+            }
+            
+            .nav-tabs {
+                top: 90px;
+            }
+            
+            .nav-tabs a {
+                padding: 12px 0;
+                font-size: 0.85em;
+            }
+            
+            .content {
+                margin-top: 110px;
+            }
         }
         
         /* ===== プロジェクト詳細モーダル ===== */
@@ -666,7 +693,7 @@
                 <div class="strengths-grid">
                     <div class="strength-card">
                         <div class="strength-icon">
-                            <img src="assets/aws-architecture-icon.svg" alt="AWS Architecture" 
+                            <img src="assets/aws-architecture-icon.png" alt="AWS Architecture" 
                                  style="width: 80px; height: 80px; object-fit: contain;">
                         </div>
                         <h3>AWS実践経験</h3>
@@ -1248,7 +1275,15 @@
                     
                     // 対応するコンテンツを表示
                     const targetId = this.getAttribute('href').substring(1);
-                    document.getElementById(targetId).classList.add('active');
+                    const targetElement = document.getElementById(targetId);
+                    targetElement.classList.add('active');
+                    
+                    // コンテンツエリアの先頭にスムーズスクロール
+                    const contentElement = document.querySelector('.content');
+                    contentElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
                 });
             });
         });
