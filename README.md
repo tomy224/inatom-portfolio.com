@@ -66,9 +66,9 @@ AWS認定ソリューションアーキテクトとして構築した、セキ�
 
 ### 実測パフォーマンス
 *実際の測定結果*
-- **PageSpeed Insights**: [**[100/100]**](https://pagespeed.web.dev/analysis/https-inatom-portfolio-com/uyp42m2xph?form_factor=desktop)
-- **Lighthouse Score**: **[99/100]**
-- **実際のロード時間**: **[504ms]**
+- **PageSpeed Insights**: [[**[100/100]**]](https://pagespeed.web.dev/analysis/https-inatom-portfolio-com/qf5wz9srz6?form_factor=mobile)
+- **Lighthouse Score**: **[93/100]**
+- **実際のロード時間**: **[326ms]**
   
 Captured at 2025年8月25日 15:02 JST
 
