@@ -1280,6 +1280,12 @@
                     const targetId = this.getAttribute('href').substring(1);
                     const targetElement = document.getElementById(targetId);
                     targetElement.classList.add('active');
+
+                    // ページトップにスクロール（固定ヘッダー分のマージン考慮）
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });                    
                 });
             });
         });
