@@ -163,3 +163,9 @@ AWS Infrastructure Engineer
 ---
 
 *このポートフォリオサイトは、AWS Solutions Architect Associate資格取得の学習成果と、実際のクラウドシステム開発経験を活用して構築されています。AIツールを効率的に活用しながら、実践的な技術習得を目指しました。*
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+学習目的での利用や改良は自由です。お役に立てば幸いです！
