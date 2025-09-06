@@ -69,3 +69,33 @@ resource "aws_cloudfront_distribution" "portfolio" {
     }
   }
 }
+
+# Route53 Hosted Zone
+resource "aws_route53_zone" "portfolio" {
+  name = "inatom-portfolio.com"
+}
+
+# Route53 Records
+resource "aws_route53_record" "portfolio_a" {
+  zone_id = aws_route53_zone.portfolio.zone_id
+  name    = "inatom-portfolio.com"
+  type    = "A"
+
+  alias {
+    name                   = aws_cloudfront_distribution.portfolio.domain_name
+    zone_id                = aws_cloudfront_distribution.portfolio.hosted_zone_id
+    evaluate_target_health = false
+  }
+}
+
+resource "aws_route53_record" "portfolio_www" {
+  zone_id = aws_route53_zone.portfolio.zone_id
+  name    = "www.inatom-portfolio.com"
+  type    = "A"
+
+  alias {
+    name                   = aws_cloudfront_distribution.portfolio.domain_name
+    zone_id                = aws_cloudfront_distribution.portfolio.hosted_zone_id
+    evaluate_target_health = false
+  }
+}
