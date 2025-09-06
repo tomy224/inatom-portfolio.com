@@ -17,12 +17,16 @@ AWSクラウドでのサーバーレス静的ウェブサイトホスティン�
 ### インフラフロー概要
 
 ```
-[Developer] → [GitHub Repository] → [GitHub Actions]
-                                          ↓
-[ユーザー] → [Route53] → [CloudFront] → [S3] ← [Terraform]
-                          ↓                     ↑
-                      [ACM SSL証明書]           ↓
-                                           [tfstate S3]
+[ユーザー] → [Route53] → [CloudFront] → [S3 Website]
+             DNS         CDN           
+
+[Developer] → [GitHub Actions]
+              CI/CD
+                ↓         ↓
+         HTML Deploy  Infrastructure
+                ↓         ↓
+        [S3 Website]  [Terraform] ↔ [tfstate S3]
+                          IaC
 ```
 
 ## 💻 使用技術・サービス
