@@ -12,8 +12,7 @@ AWSクラウドでのサーバーレス静的ウェブサイトホスティン�
 ## 🏗️ システム構成
 
 ### AWSサーバーレスアーキテクチャ
-![AWS Architecture - Portfolio Infrastructure](assets/portfolio-architecture.webp)  
-📖 **[高解像度版（SVG）はこちら](assets/portfolio-architecture.svg)**
+![AWS Architecture - Portfolio Infrastructure](assets/portfolio-architecture.svg)  
 
 ### インフラフロー概要
 
