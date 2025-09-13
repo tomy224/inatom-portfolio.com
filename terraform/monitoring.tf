@@ -86,3 +86,59 @@ resource "aws_sns_topic_subscription" "email_alerts" {
   protocol  = "email"
   endpoint  = "parmenara@gmail.com"
 }
+
+
+# Lambda function for custom metrics
+resource "aws_lambda_function" "metrics_collector" {
+  filename         = "metrics_collector.zip"
+  function_name    = "portfolio-metrics-collector"
+  role            = aws_iam_role.lambda_metrics_role.arn
+  handler         = "index.handler"
+  runtime         = "python3.9"
+  timeout         = 30
+
+  tags = {
+    Environment = "production"
+    Purpose     = "monitoring"
+  }
+}
+
+# IAM role for Lambda
+resource "aws_iam_role" "lambda_metrics_role" {
+  name = "portfolio-lambda-metrics-role"
+
+  assume_role_policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Action = "sts:AssumeRole"
+        Effect = "Allow"
+        Principal = {
+          Service = "lambda.amazonaws.com"
+        }
+      }
+    ]
+  })
+}
+
+# IAM policy for CloudWatch metrics
+resource "aws_iam_role_policy" "lambda_metrics_policy" {
+  name = "portfolio-lambda-metrics-policy"
+  role = aws_iam_role.lambda_metrics_role.id
+
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Effect = "Allow"
+        Action = [
+          "logs:CreateLogGroup",
+          "logs:CreateLogStream",
+          "logs:PutLogEvents",
+          "cloudwatch:PutMetricData"
+        ]
+        Resource = "*"
+      }
+    ]
+  })
+}
