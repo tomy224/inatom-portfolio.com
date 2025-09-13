@@ -142,3 +142,26 @@ resource "aws_iam_role_policy" "lambda_metrics_policy" {
     ]
   })
 }
+
+# EventBridge rule for 15-minute execution
+resource "aws_cloudwatch_event_rule" "metrics_schedule" {
+  name                = "portfolio-metrics-schedule"
+  description         = "Trigger portfolio metrics collection every 15 minutes"
+  schedule_expression = "rate(15 minutes)"
+}
+
+# EventBridge target
+resource "aws_cloudwatch_event_target" "lambda_target" {
+  rule      = aws_cloudwatch_event_rule.metrics_schedule.name
+  target_id = "PortfolioMetricsTarget"
+  arn       = aws_lambda_function.metrics_collector.arn
+}
+
+# Lambda permission for EventBridge
+resource "aws_lambda_permission" "allow_eventbridge" {
+  statement_id  = "AllowExecutionFromEventBridge"
+  action        = "lambda:InvokeFunction"
+  function_name = aws_lambda_function.metrics_collector.function_name
+  principal     = "events.amazonaws.com"
+  source_arn    = aws_cloudwatch_event_rule.metrics_schedule.arn
+}
