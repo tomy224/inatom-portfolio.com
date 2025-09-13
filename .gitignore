@@ -7,3 +7,5 @@
 *.tfplan.*
 .terraformrc
 terraform.rc
+
+*.zip
