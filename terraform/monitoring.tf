@@ -79,3 +79,10 @@ resource "aws_cloudwatch_metric_alarm" "cloudfront_latency" {
     Purpose     = "monitoring"
   }
 }
+
+# Email notification subscription
+resource "aws_sns_topic_subscription" "email_alerts" {
+  topic_arn = aws_sns_topic.portfolio_alerts.arn
+  protocol  = "email"
+  endpoint  = "parmenara@gmail.com"
+}
