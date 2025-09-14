@@ -89,6 +89,9 @@ AWSクラウドでのサーバーレス静的ウェブサイトホスティン�
 - **コスト効率重視**: 月額数十円での企業レベル監視実現
 - **段階的アラート設計**: 重要度に応じた通知制御
 
+![CloudFront Performance Metrics](assets/cloudfront-monitoring-dashboard.webp)  
+*CloudFront監視データ：リクエスト数・HTTPステータス・データ転送量*
+
 **詳細技術記事**: [Qiita - AWSポートフォリオサイト監視システム構築](https://qiita.com/parmenara/items/728ce35dbbc6c9915e0d)
 
 ## 🔒 セキュリティ実装
