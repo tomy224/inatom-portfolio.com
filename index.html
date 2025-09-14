@@ -807,6 +807,24 @@
                 <h2 class="section-title">主要プロジェクト</h2>
                 
                 <div class="projects-grid">
+                    <div class="project-card" onclick="openModal('portfolio-modal')">
+                        <div class="project-header">
+                            <h3 class="project-title">このポートフォリオサイト</h3>
+                            <div class="project-period">2025年8月 - 現在</div>
+                            <p class="project-summary">
+                                AWS静的ウェブサイトホスティング + 企業レベル監視システム。CI/CD + 24時間監視。
+                            </p>
+                        </div>
+                        <div class="project-tech-tags">
+                            <span class="tech-tag">CloudWatch</span>
+                            <span class="tech-tag">GitHub Actions</span>
+                            <span class="tech-tag">Lambda監視</span>
+                            <span class="tech-tag">CloudFront</span>
+                            <span class="tech-tag">SNS</span>
+                        </div>
+                        <div class="project-cta">詳細を見る →</div>
+                    </div>
+
                     <div class="project-card" onclick="openModal('ecommerce-modal')">
                         <div class="project-header">
                             <h3 class="project-title">物販データ処理基盤</h3>
@@ -822,24 +840,6 @@
                             <span class="tech-tag">Python</span>
                             <span class="tech-tag">Docker</span>
                             <span class="tech-tag">VScode</span>                            
-                        </div>
-                        <div class="project-cta">詳細を見る →</div>
-                    </div>
-
-                    <div class="project-card" onclick="openModal('portfolio-modal')">
-                        <div class="project-header">
-                            <h3 class="project-title">このポートフォリオサイト</h3>
-                            <div class="project-period">2025年8月 - 現在</div>
-                            <p class="project-summary">
-                                AWS静的ウェブサイトホスティング + 企業レベル監視システム。CI/CD自動デプロイ + 24時間監視。
-                            </p>
-                        </div>
-                        <div class="project-tech-tags">
-                            <span class="tech-tag">CloudWatch</span>
-                            <span class="tech-tag">GitHub Actions</span>
-                            <span class="tech-tag">Lambda監視</span>
-                            <span class="tech-tag">CloudFront</span>
-                            <span class="tech-tag">SNS</span>
                         </div>
                         <div class="project-cta">詳細を見る →</div>
                     </div>
@@ -945,29 +945,7 @@
             <!-- Experience タブ -->
             <div id="experience" class="tab-content">
                 <h2 class="section-title">職歴・経験</h2>
-                
-                <div class="career-item">
-                    <h4>プログラミング教師・ECサイト制作運用</h4>
-                    <div class="company">株式会社ジョイアス</div>
-                    <div class="period">2025年3月 - 現在（アルバイト）</div>
-                    <ul>
-                        <li>小中学生を対象に、Scratch・Pythonを中心とした指導を担当</li>
-                        <li>Python文法の基礎指導、paiza・CodeCombat等を活用した実践学習</li>
-                        <li>プログラミング的思考の育成と問題解決能力の向上をサポート</li>
-                        <li>技術をかみ砕いて説明する力・教育力を強化</li>
-                        <li>ECサイトの制作・運用サポート業務</li>
-                    </ul>
-                    
-                    <div class="metrics">
-                        <h4>教育実績</h4>
-                        <ul>
-                            <li>指導生徒数: 月平均15名の小中学生</li>
-                            <li>カリキュラム: ScratchからPython基礎まで（paiza・CodeCombat活用）</li>
-                            <li>成果: 指導生徒がPythonプログラミング能力検定試験に合格</li>
-                        </ul>
-                    </div>
-                </div>
-                
+
                 <div class="career-item">
                     <h4>個人事業主（システム開発・物販事業）</h4>
                     <div class="company">個人事業</div>
@@ -991,6 +969,30 @@
                         </ul>
                     </div>
                 </div>
+
+                
+                <div class="career-item">
+                    <h4>プログラミング教師・ECサイト制作運用</h4>
+                    <div class="company">株式会社ジョイアス</div>
+                    <div class="period">2025年3月 - 現在（アルバイト）</div>
+                    <ul>
+                        <li>小中学生を対象に、Scratch・Pythonを中心とした指導を担当</li>
+                        <li>Python文法の基礎指導、paiza・CodeCombat等を活用した実践学習</li>
+                        <li>プログラミング的思考の育成と問題解決能力の向上をサポート</li>
+                        <li>技術をかみ砕いて説明する力・教育力を強化</li>
+                        <li>ECサイトの制作・運用サポート業務</li>
+                    </ul>
+                    
+                    <div class="metrics">
+                        <h4>教育実績</h4>
+                        <ul>
+                            <li>指導生徒数: 月平均15名の小中学生</li>
+                            <li>カリキュラム: ScratchからPython基礎まで（paiza・CodeCombat活用）</li>
+                            <li>成果: 指導生徒がPythonプログラミング能力検定試験に合格</li>
+                        </ul>
+                    </div>
+                </div>
+                
                 
                 <div class="career-item">
                     <h4>私設秘書</h4>
@@ -1147,7 +1149,7 @@
                         <li>Route53: DNS管理、100%のSLA保証</li>
                         <li>ACM: SSL証明書、無料で自動更新</li>
                         <li>GitHub Actions: CI/CD、自動デプロイ</li>
-                        <li>Phase 6: 企業レベル監視システム → CloudWatch・SNS・Lambda外形監視</li>
+                        <li>企業レベル監視システム → CloudWatch・SNS・Lambda外形監視</li>
                     </ul>
                 </div>
                 
